@@ -24,6 +24,7 @@ void Manacher()
 {
 	int i, j, id, maxid = 0, ans = 1;
 	len = 2 * len + 2;
+	//calculate radius array p[i]
 	for (i = 0; i < len; i++){
 		if (maxid > i){
 			p[i] = min(p[2 * id - i], maxid - i);
