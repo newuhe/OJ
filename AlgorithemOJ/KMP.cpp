@@ -24,7 +24,7 @@ int lenW, lenT;
 //		{
 //			i++;
 //			j++;
-//			if (P[i] != P[j])
+//			if (P[i] != P[j])             //防止相同的字符在kmp中再进行比较
 //				nextval[i] = j;
 //			else
 //				nextval[i] = nextval[j];  //既然相同就继续往前找前缀
