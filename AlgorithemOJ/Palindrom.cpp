@@ -30,14 +30,17 @@ void Manacher()
 			p[i] = min(p[2 * id - i], maxid - i);
 		}
 		else{
-			p[i] = 1;
+			p[i] = 1;//initialize
 		}
+
 		while (newstr[i + p[i]] == newstr[i - p[i]])
 			p[i]++;
+
 		if (p[i] + i > maxid){
 			maxid = p[i] + i;
 			id = i;
 		}
+		//find max p[i]
 		if (ans < p[i])
 			ans = p[i];
 	}
