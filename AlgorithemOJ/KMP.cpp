@@ -9,6 +9,31 @@ char W[MAXW], T[MAXT];
 int Next[MAXW] = {0};
 int lenW, lenT;
 
+//优化版，找第一次出现更快，但不能找重复次数
+///* P为模式串，下标从0开始 */
+//void GetNextval(string P, int nextval[])
+//{
+//	int p_len = P.size();
+//	int i = 0;   //P的下标
+//	int j = -1;
+//	nextval[0] = -1;
+//
+//	while (i < p_len)
+//	{
+//		if (j == -1 || P[i] == P[j])
+//		{
+//			i++;
+//			j++;
+//			if (P[i] != P[j])
+//				nextval[i] = j;
+//			else
+//				nextval[i] = nextval[j];  //既然相同就继续往前找前缀
+//		}
+//		else
+//			j = nextval[j];
+//	}
+//}
+
 
 /*next[i] stores the length of common subarray of first i elements*/
 void getnext(int lenW)
@@ -17,7 +42,9 @@ void getnext(int lenW)
 	Next[i] = -1;
 	while (i<lenW) {
 		if (j == -1 || W[i] == W[j]) {
-			Next[++i] = ++j;
+			++i;
+			++j;
+			Next[i] = j;
 		}
 		else j = Next[j];
 	}
