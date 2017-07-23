@@ -9,7 +9,7 @@ char W[MAXW], T[MAXT];
 int Next[MAXW] = {0};
 int lenW, lenT;
 
-//优化版，找第一次出现更快，但不能找重复次数
+//优化版，找到最优相同前后缀长度，但不一定最长；找第一次出现更快，但不能找重复次数
 ///* P为模式串，下标从0开始 */
 //void GetNextval(string P, int nextval[])
 //{
